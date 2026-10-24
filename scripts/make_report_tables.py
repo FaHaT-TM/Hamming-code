@@ -25,7 +25,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 from src import channel, convolutional as conv  # noqa: E402
-from src import hamming, metrics, plotting, simulation, viterbi  # noqa: E402
+from src import hamming, metrics, plotting, simulation  # noqa: E402
 
 DATA = os.path.join(ROOT, "results", "data")
 OUT_MD = os.path.join(ROOT, "docs", "report", "RESULTS.md")

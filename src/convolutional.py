@@ -175,7 +175,6 @@ def encode_batch(bits2d) -> np.ndarray:
 
     states = np.zeros(b_count, dtype=np.int8)          # начальное состояние 00
     out = np.empty((b_count, steps * N_OUT), dtype=np.uint8)
-    rows = np.arange(b_count)
 
     for t in range(steps):
         u = padded[:, t]
