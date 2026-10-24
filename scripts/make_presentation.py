@@ -63,11 +63,37 @@ def main() -> None:
                 p.font.size = Pt(20)
         return s
 
-    # 1. Титул
-    s = prs.slides.add_slide(prs.slide_layouts[0])
-    s.shapes.title.text = TITLE
-    s.placeholders[1].text = ("Блочный код Хэмминга (7,4) и свёрточный код (7,5)₈ "
-                              "с декодированием по Витерби в канале BPSK + AWGN")
+    # 1. Титул (ручная раскладка: длинное название не помещается
+    # в стандартный placeholder и наслаивается, поэтому — отдельные
+    # текстовые блоки с фиксированными размерами шрифта и переносом)
+    s = prs.slides.add_slide(blank)
+    title_box = s.shapes.add_textbox(Inches(0.7), Inches(0.9),
+                                     Inches(11.9), Inches(2.6))
+    tf = title_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = TITLE
+    p.font.size = Pt(32)
+
+    sub_box = s.shapes.add_textbox(Inches(0.7), Inches(3.8),
+                                   Inches(11.9), Inches(1.2))
+    tf = sub_box.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = ("Блочный код Хэмминга (7,4) и свёрточный код (7,5)₈ "
+              "с декодированием по Витерби в канале BPSK + AWGN")
+    p.font.size = Pt(20)
+
+    sign_box = s.shapes.add_textbox(Inches(8.6), Inches(6.05),
+                                    Inches(4.2), Inches(1.25))
+    tf = sign_box.text_frame
+    tf.word_wrap = True
+    for i, line in enumerate(("Работу выполнил",
+                              "Студент группы 11ОБ-397",
+                              "Чурсин А.В.")):
+        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+        p.text = line
+        p.font.size = Pt(16)
 
     slide("Актуальность и цель", [
         "Реальные каналы вносят ошибки: помехоустойчивое кодирование платит "
