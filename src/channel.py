@@ -1,7 +1,7 @@
 """Канал BPSK + AWGN с жёстким решением.
 
 Математическая спецификация: docs/SPECIFICATIONS_CONVOLUTIONAL.md, модуль
-«BPSK и AWGN — Q6».
+«BPSK и AWGN — Q6». Энергия нормируется на информационный бит через R_eff.
 
 Модель
 ------

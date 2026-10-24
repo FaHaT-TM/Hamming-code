@@ -45,3 +45,4 @@ results/data/raw/
 *.log
 *.tmp
 ~$*
+*.zip
