@@ -179,6 +179,7 @@ python scripts/refinement_analysis.py  # выигрыш по уточняюще�
 * `docs/report/REFINEMENT_RESULTS.md` — уточняющий прогон 0.2 дБ;
 * `docs/report/HISTOGRAM_CHECKS.md` — проверка тождеств гистограмм по всем строкам;
 * `docs/report/VITERBI_VERIFICATION.md` — короткие тесты декодера со счётчиками.
+* `docs/presentation/defense_presentation.pptx` — презентация для защиты (13 слайдов; генерация — `scripts/make_presentation.py`).
 
 ## Ограничения
 
