@@ -61,9 +61,7 @@ coding_noise_research/
 ├── results/
 │   ├── data/                       # CSV, JSON (коммитятся: малы и нужны для графиков)
 │   └── figures/                    # PNG + PDF
-├── docs/
-│   ├── packet2_pkg/                # пакет для Агента №2 в поддерживаемых MIME-типах
-│   └── ...                         # архитектура, спецификации, отчёты, QA
+├── docs/                           # архитектура, спецификации, отчёты, QA
 ├── requirements.txt
 └── .gitignore
 ```
@@ -116,8 +114,6 @@ python scripts/make_figures.py         # results/figures/*.png и *.pdf (вкл�
 python scripts/make_report_tables.py   # отчёт, energy_gain.csv, cluster_intervals.csv
 python scripts/verify_viterbi.py       # короткие тесты Витерби со счётчиками случаев
 python scripts/check_histograms.py     # 4 тождества гистограмм по всем строкам CSV
-python scripts/make_transfer_packet.py  # пакет для Агента №2 в поддерживаемых типах
-python scripts/check_transfer_packet.py # MIME ⊂ поддерживаемых, побайтовость, полнота
 python scripts/run_refinement.py       # уточняющий прогон 0.2 дБ, ~2 мин (отдельный seed)
 python scripts/refinement_analysis.py  # выигрыш по уточняющему набору
 ```
@@ -162,23 +158,6 @@ python scripts/refinement_analysis.py  # выигрыш по уточняюще�
 события (при K < 30 нормальная аппроксимация не применяется). Эти составляющие
 не складываются.
 
-## Передача результатов Агенту №2
-
-Агент №2 принимает файлы типов: `image/png`, `image/webp`, `image/jpeg`, `image/gif`,
-`text/plain`, `text/markdown`, `text/csv`, `text/html`, `text/xml`, `text/css`,
-`text/javascript`, `application/json`, `application/xml`, `application/javascript`,
-`application/pdf`. Под этот список собирается пакет `docs/packet2_pkg/`
-(структура проекта сохраняется, точка входа — `docs/packet2_pkg/00_INDEX.md`):
-
-* `.md`, `.txt`, `.csv`, `.json`, `.png`, `.pdf` — передаются как есть;
-* `.py` → `<имя>.py.txt` (`text/plain`), дословно;
-* `.ipynb` → `<имя>.ipynb.json` (дословно) и рядом `<имя>.ipynb.md` (читаемый рендер);
-* `.zip` и иные контейнеры не передаются.
-
-Все копии побайтовые; это проверяет `python scripts/check_transfer_packet.py`
-(машинный отчёт — `results/data/transfer_check.json`). Пояснение для Агента №2 и запрос
-одобрения на оформление итогового документа — `docs/report/PACKET_2_TRANSFER_NOTE.md`.
-
 ## Воспроизведение графиков
 
 Графики строятся **только** из сохранённых CSV. При том же seed повторный запуск
@@ -188,19 +167,15 @@ python scripts/refinement_analysis.py  # выигрыш по уточняюще�
 ## Документация
 
 * `docs/ARCHITECTURE.md` — архитектура и принятые решения;
-* `docs/SPEC_REQUEST_AGENT2_NEXT.md` — математические спецификации (Q3–Q11);
-* `docs/report/PACKET_2_RESULTS.md` — пакет результатов: таблицы, интервалы, выигрыш;
-* `docs/report/PACKET_HAMMING_RESULTS.md` — пакет результатов по коду Хэмминга;
+* `docs/SPECIFICATIONS.md` — математические спецификации (Q1–Q12);
+* `docs/SPECIFICATIONS_CONVOLUTIONAL.md` — математические спецификации (Q3–Q11);
+* `docs/report/RESULTS.md` — основной отчёт: таблицы, интервалы, выигрыш;
+* `docs/report/HAMMING_RESULTS.md` — результаты проверки кода Хэмминга;
 * `docs/TEST_STATE.md` — фактическое состояние тестов и прогонов;
 * `docs/QA_CHECKLIST.md` — контроль качества по 16 пунктам ТЗ;
-* `docs/A2_RESPONSE.md` — ответы на заключения Агента №2 (что пересчитано и как);
 * `docs/report/REFINEMENT_RESULTS.md` — уточняющий прогон 0.2 дБ;
 * `docs/report/HISTOGRAM_CHECKS.md` — проверка тождеств гистограмм по всем строкам;
-* `docs/report/VITERBI_VERIFICATION.md` — короткие тесты декодера со счётчиками;
-* `docs/report/MANIFEST.md` — манифест передаваемых файлов с SHA-256;
-* `docs/report/PACKET_2_TRANSFER_NOTE.md` — передача пакета в поддерживаемых типах
-  и запрос одобрения на оформление итогового документа;
-* `docs/packet2_pkg/00_INDEX.md` — состав пакета, MIME-типы, размеры и SHA-256.
+* `docs/report/VITERBI_VERIFICATION.md` — короткие тесты декодера со счётчиками.
 
 ## Ограничения
 

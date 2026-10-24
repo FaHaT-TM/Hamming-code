@@ -211,7 +211,7 @@ class TestFigures(unittest.TestCase):
 
 
 class TestZeroHistograms(unittest.TestCase):
-    """Гистограммы Z_j (добавлены по замечанию Агента №2, §5)."""
+    """Гистограммы Z_j (по спецификации, §5)."""
 
     def test_hist_consistent_with_counters(self):
         plan = small_plan()
