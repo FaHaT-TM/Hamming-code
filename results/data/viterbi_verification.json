@@ -1,0 +1,136 @@
+{
+  "brute_force": {
+    "rows": [
+      {
+        "L": 1,
+        "cases": 8,
+        "metric_mismatch": 0,
+        "unique_optimum": 8,
+        "message_mismatch": 0,
+        "ambiguous": 0
+      },
+      {
+        "L": 2,
+        "cases": 16,
+        "metric_mismatch": 0,
+        "unique_optimum": 15,
+        "message_mismatch": 0,
+        "ambiguous": 1
+      },
+      {
+        "L": 3,
+        "cases": 32,
+        "metric_mismatch": 0,
+        "unique_optimum": 29,
+        "message_mismatch": 0,
+        "ambiguous": 3
+      },
+      {
+        "L": 4,
+        "cases": 64,
+        "metric_mismatch": 0,
+        "unique_optimum": 55,
+        "message_mismatch": 0,
+        "ambiguous": 9
+      },
+      {
+        "L": 5,
+        "cases": 128,
+        "metric_mismatch": 0,
+        "unique_optimum": 116,
+        "message_mismatch": 0,
+        "ambiguous": 12
+      },
+      {
+        "L": 6,
+        "cases": 256,
+        "metric_mismatch": 0,
+        "unique_optimum": 240,
+        "message_mismatch": 0,
+        "ambiguous": 16
+      }
+    ],
+    "total": {
+      "cases": 504,
+      "metric_mismatch": 0,
+      "unique_optimum": 463,
+      "message_mismatch": 0,
+      "ambiguous": 41
+    }
+  },
+  "single_inversions": {
+    "rows": [
+      {
+        "L": 1,
+        "positions": 12,
+        "recovered": 12
+      },
+      {
+        "L": 2,
+        "positions": 32,
+        "recovered": 32
+      },
+      {
+        "L": 3,
+        "positions": 80,
+        "recovered": 80
+      },
+      {
+        "L": 4,
+        "positions": 192,
+        "recovered": 192
+      },
+      {
+        "L": 5,
+        "positions": 448,
+        "recovered": 448
+      },
+      {
+        "L": 6,
+        "positions": 1024,
+        "recovered": 1024
+      }
+    ],
+    "total": {
+      "cases": 1788,
+      "recovered": 1788
+    }
+  },
+  "tie_break_example": {
+    "length": 2,
+    "received": "00000111",
+    "optimal_messages": [
+      "00",
+      "11"
+    ],
+    "metrics": [
+      3,
+      3
+    ],
+    "decoder_metric": 3,
+    "decoder_choice": "00",
+    "rule": "выбирается ребро с меньшим номером предыдущего состояния (EDGE_PREV[:, 0] = 2·(q mod 2) < EDGE_PREV[:, 1])",
+    "edge_prev_table": {
+      "0": [
+        0,
+        1
+      ],
+      "1": [
+        2,
+        3
+      ],
+      "2": [
+        0,
+        1
+      ],
+      "3": [
+        2,
+        3
+      ]
+    }
+  },
+  "d_free": {
+    "value": 5,
+    "computational_min_over_L<=12": 5
+  }
+}

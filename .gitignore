@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Виртуальные окружения ---
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb~
+.nbconvert/
+.jupyter/
+
+# --- VS Code / IDE ---
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+.DS_Store
+
+# --- Кэши тестов и инструментов ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Большие промежуточные массивы (НЕ коммитим) ---
+results/data/*.npz
+results/data/*.npy
+results/data/*.pkl
+results/data/raw/
+
+# --- Служебные файлы ---
+*.log
+*.tmp
+~$*
+docs/report/packet2_for_agent2.zip
+
+# пакет для Агента №2 — генерируемый артефакт
+docs/packet2_pkg/

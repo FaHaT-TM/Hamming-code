@@ -1,0 +1,16 @@
+{
+ "path": "docs/report/packet2_for_agent2.zip",
+ "bytes": 2268053,
+ "sha256": "7861817c9d1c1ed386c1a6b01f1061084ccc71618a61b646b2bcb302f6d1da57",
+ "files": 76,
+ "by_mime": {
+  "text/plain": 33,
+  "text/markdown": 15,
+  "application/json": 7,
+  "text/csv": 8,
+  "application/pdf": 6,
+  "image/png": 6
+ },
+ "problems": [],
+ "ok": true
+}

@@ -1,0 +1,18 @@
+{
+  "uncoded": {
+    "n_info_bits": 200000,
+    "median_s": 0.005624592999993183,
+    "per_million_s": 0.028122964999965916
+  },
+  "hamming": {
+    "n_info_bits": 200000,
+    "median_s": 0.011947269000074812,
+    "per_million_s": 0.05973634500037406
+  },
+  "convolutional": {
+    "n_info_bits": 100000,
+    "median_s": 0.2323968050000076,
+    "per_million_s": 2.323968050000076
+  },
+  "estimated_full_run_s": 27.496553370008314
+}

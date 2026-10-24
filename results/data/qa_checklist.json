@@ -1,0 +1,98 @@
+[
+ {
+  "n": 1,
+  "text": "Все исходные модули присутствуют",
+  "ok": true,
+  "detail": "__init__.py, __pycache__, channel.py, convolutional.py, hamming.py, metrics.py, plotting.py, simulation.py, viterbi.py"
+ },
+ {
+  "n": 2,
+  "text": "Notebook присутствует и исполняется без ошибок",
+  "ok": true,
+  "detail": "`jupyter nbconvert --execute`: ошибок 0, 48 ячеек (22 исполняемых)"
+ },
+ {
+  "n": 3,
+  "text": "Импорты работают",
+  "ok": true,
+  "detail": "ok"
+ },
+ {
+  "n": 4,
+  "text": "Зависимости указаны (numpy, matplotlib, jupyter)",
+  "ok": true,
+  "detail": "requirements.txt; scipy не требуется"
+ },
+ {
+  "n": 5,
+  "text": "Все тесты проходят",
+  "ok": true,
+  "detail": "Ran 119 tests in 6.595s; OK"
+ },
+ {
+  "n": 6,
+  "text": "Seed зафиксирован",
+  "ok": true,
+  "detail": "Plan.seed = 20261024, потоки через SeedSequence"
+ },
+ {
+  "n": 7,
+  "text": "Хэмминг корректен",
+  "ok": true,
+  "detail": "112/112 одиночных ошибок, d_min=3 перебором"
+ },
+ {
+  "n": 8,
+  "text": "Витерби корректен",
+  "ok": true,
+  "detail": "эталон без шума L≤8, сверка с полным перебором 2^L, батч==одиночная на L=10^4"
+ },
+ {
+  "n": 9,
+  "text": "AWGN и BPSK корректны",
+  "ok": true,
+  "detail": "σ² формула, статистика шума, эмпирическая p против Q(√(2Rγ_b))"
+ },
+ {
+  "n": 10,
+  "text": "Скорость кода учитывается в σ²",
+  "ok": true,
+  "detail": "R_eff: uncoded=1.0, hamming=0.57143, convolutional=0.49990"
+ },
+ {
+  "n": 11,
+  "text": "BER считается по информационным битам",
+  "ok": true,
+  "detail": "BER = n_errors / n_info_bits; хвостовые биты исключены"
+ },
+ {
+  "n": 12,
+  "text": "Теория BPSK сопоставлена с экспериментом",
+  "ok": true,
+  "detail": "см. раздел 4 отчёта: отношение эксперимент/теория ≈ 1"
+ },
+ {
+  "n": 13,
+  "text": "Графики подписаны и сохранены",
+  "ok": true,
+  "detail": "PNG+PDF, оси/легенда/сетка/аннотация объёмов"
+ },
+ {
+  "n": 14,
+  "text": "Результаты сохранены",
+  "ok": true,
+  "detail": "CSV без округления, с seed, R_eff, σ², статусом"
+ },
+ {
+  "n": 15,
+  "text": "README содержит инструкции",
+  "ok": true,
+  "detail": "установка, notebook, тесты, эксперимент, результаты, воспроизведение"
+ },
+ {
+  "n": 16,
+  "text": "Проект пригоден для GitHub",
+  "ok": true,
+  "detail": ".gitignore: venv, __pycache__, .ipynb_checkpoints, .vscode, большие .npz/.npy"
+ }
+]

@@ -1,0 +1,41 @@
+{
+  "seed": 20261026,
+  "grids": {
+    "uncoded": [
+      8.0,
+      8.2,
+      8.4,
+      8.6,
+      8.8
+    ],
+    "hamming": [
+      7.8,
+      8.0,
+      8.2,
+      8.4,
+      8.6
+    ],
+    "convolutional": [
+      6.6,
+      6.8,
+      7.0,
+      7.2,
+      7.4
+    ]
+  },
+  "n_info": {
+    "uncoded": 30000000,
+    "hamming": 30000000,
+    "convolutional": 10000000
+  },
+  "packets": 1000,
+  "packet_length": 10000,
+  "r_eff": {
+    "uncoded": 1.0,
+    "hamming": 0.5714285714285714,
+    "convolutional": 0.4999000199960008
+  },
+  "streams": "numpy.random.SeedSequence(entropy=[seed, scheme_tag, scheme_id, chunk_index, purpose]), purpose=1 биты / 2 шум; bootstrap использует отдельный генератор с другим seed",
+  "fixed_before_run": true,
+  "early_stopping": false
+}
