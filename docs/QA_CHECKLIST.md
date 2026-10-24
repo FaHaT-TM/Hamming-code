@@ -4,7 +4,7 @@
 
 | № | Требование | Результат | Подтверждение |
 |---:|---|---|---|
-| 1 | Все исходные модули присутствуют | ✅ | __init__.py, __pycache__, channel.py, convolutional.py, hamming.py, metrics.py, plotting.py, simulation.py, viterbi.py |
+| 1 | Все исходные модули присутствуют | ✅ | __init__.py, channel.py, convolutional.py, hamming.py, metrics.py, plotting.py, simulation.py, viterbi.py |
 | 2 | Notebook присутствует и исполняется без ошибок | ✅ | `jupyter nbconvert --execute`: 0 ошибок, 48 ячеек (22 исполняемых) |
 | 3 | Импорты работают | ✅ | ok |
 | 4 | Зависимости указаны (numpy, matplotlib, jupyter) | ✅ | requirements.txt; scipy не требуется |

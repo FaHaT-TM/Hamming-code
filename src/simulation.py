@@ -32,7 +32,6 @@
 from __future__ import annotations
 
 import csv
-import math
 import os
 import platform
 import time
@@ -219,7 +218,6 @@ def _simulate_convolutional(plan: Plan, ebno_db: float, n_info: int, tag: int):
     """Свёрточный код + Витерби. Возвращает (E, ΣZ², N_info, K), K — пакеты с ошибками."""
     length = plan.packet_length
     r_eff = conv.rate_effective(length)
-    tail = conv.TAIL
     n_packets = n_info // length
     if n_packets == 0:
         raise ValueError("объём меньше одного пакета")

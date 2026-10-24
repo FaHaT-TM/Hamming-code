@@ -27,8 +27,8 @@
 ## Установка
 
 ```bash
-git clone <адрес-репозитория> coding_noise_research
-cd coding_noise_research
+git clone https://github.com/FaHaT-TM/Hamming-code.git
+cd Hamming-code
 python -m venv venv
 source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ## Структура
 
 ```
-coding_noise_research/
+Hamming-code/
 ├── notebooks/01_research.ipynb     # главный отчёт: 19 разделов, исполняемый
 ├── src/
 │   ├── hamming.py                  # код Хэмминга (7,4)
@@ -52,12 +52,13 @@ coding_noise_research/
 │   ├── run_experiment.py           # полный/быстрый эксперимент, замер производительности
 │   ├── make_figures.py             # графики из CSV
 │   ├── make_report_tables.py       # таблицы из CSV + energy_gain.csv
-│   ├── verify_hamming_spec.py      # пакет результатов по Хэммингу
+│   ├── verify_hamming_spec.py      # результаты проверки кода Хэмминга
 │   ├── verify_viterbi.py           # короткие тесты Витерби со счётчиками случаев
 │   ├── check_histograms.py         # 4 тождества гистограмм Z_j по всем строкам CSV
 │   ├── run_refinement.py           # уточняющий прогон по сетке 0.2 дБ (отдельный seed)
 │   ├── refinement_analysis.py      # выигрыш и интервалы по уточняющему набору
-│   └── build_notebook.py           # пересборка notebook
+│   ├── build_notebook.py           # пересборка notebook
+│   └── qa_check.py                 # контроль качества по 16 пунктам
 ├── results/
 │   ├── data/                       # CSV, JSON (коммитятся: малы и нужны для графиков)
 │   └── figures/                    # PNG + PDF

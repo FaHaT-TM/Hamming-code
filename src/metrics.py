@@ -454,7 +454,6 @@ def cluster_normal_from_hist(hist: dict, ell: int, z_crit: float = 1.96,
 
 def _draw_multinomial(rng: np.random.Generator, hist: dict, m: int) -> np.ndarray:
     """Ресэмплировать M единиц из гистограммы (мультиномиальное вытягивание)."""
-    zs = np.fromiter(hist.keys(), dtype=np.int64, count=len(hist))
     counts = np.fromiter(hist.values(), dtype=np.float64, count=len(hist))
     probs = counts / counts.sum()
     return rng.multinomial(m, probs)
