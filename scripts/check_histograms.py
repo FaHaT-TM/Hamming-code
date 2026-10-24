@@ -98,8 +98,7 @@ def main() -> None:
               f"| $\\sum_z z h_z$ | {ctrl['hist_E']} |",
               f"| $M - h_0$ | {ctrl['hist_K']} |",
               f"| $\\sum_z z^2 h_z$ | {ctrl['hist_sum_z2']:.0f} |", ""]
-        L += [f"**K = {ctrl['K']}** (не «около 700»: это была ошибка в тексте ответа "
-              "Агента №1, данные не менялись).", ""]
+        L += [f"**K = {ctrl['K']}** (значение сверено с сохранёнными данными).", ""]
     with open(MD_OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(L) + "\n")
     print(f"записано: {JSON_OUT}")

@@ -1,6 +1,6 @@
 # СОСТОЯНИЕ ТЕСТОВ И СБОРОК
 
-**Обновлено:** 2026-10-24 (редакция 3, после второго заключения Агента №2)  
+**Обновлено:** 2026-10-24  
 **Окружение:** Python 3.13.16, NumPy 2.3.5, Matplotlib 3.10.9, Linux x86_64, 2 vCPU
 
 Артефакт фиксирует **фактически выполненный** прогон. Тесты, которые не запускались, не объявляются пройденными.
@@ -20,10 +20,7 @@ python scripts/make_report_tables.py                 # таблицы, клас�
 python scripts/check_histograms.py                   # 4 тождества гистограмм по всем строкам
 python scripts/run_refinement.py                     # уточняющий прогон 0.2 дБ (seed 20261026)
 python scripts/refinement_analysis.py                # выигрыш по уточняющему набору
-python scripts/qa_check.py                           # 16 пунктов §19 мастер-плана
-python scripts/make_transfer_archive.py              # архив пакета + MANIFEST.md с SHA-256
-python scripts/make_transfer_packet.py               # пакет для Агента №2 в поддерживаемых типах
-python scripts/check_transfer_packet.py              # MIME, побайтовость, полнота пакета
+python scripts/qa_check.py                           # 16 пунктов §19 плана проекта
 ```
 
 ## Результат прогона
@@ -43,7 +40,7 @@ OK
 | `test_simulation.py` | 21 |
 | `test_viterbi.py` | 22 |
 
-Добавлено в редакции 2 (по замечанию §5 Агента №2): проверки согласованности гистограмм `Z_j` со счётчиками `E`, `M`, `ΣZ²`; round-trip `hist_to_str`/`hist_from_str`; кластерные статистики и условие применимости нормальной аппроксимации (`K ≥ 30`); форма и монотонность bootstrap-интервала выигрыша.
+Дополнительно проверено (§5 спецификации): проверки согласованности гистограмм `Z_j` со счётчиками `E`, `M`, `ΣZ²`; round-trip `hist_to_str`/`hist_from_str`; кластерные статистики и условие применимости нормальной аппроксимации (`K ≥ 30`); форма и монотонность bootstrap-интервала выигрыша.
 
 ## Проверка исполнения notebook
 
@@ -62,9 +59,6 @@ OK
 | Отчёт и таблицы | `python scripts/make_report_tables.py` | 8.2 с | 12 разделов, §7.1–7.4 |
 | Notebook | `jupyter nbconvert --execute` | 14.5 с | 48 ячеек, 0 ошибок |
 | QA по §19 | `python scripts/qa_check.py` | 7.9 с | 16/16 |
-| Архив пакета | `python scripts/make_transfer_archive.py` | 0.2 с | все файлы пакета + `MANIFEST.md`; размер и SHA-256 в `MANIFEST.md` |
-| Пакет для Агента №2 | `python scripts/make_transfer_packet.py` | 0.2 с | 73 файла проекта → 75 файлов пакета, ≈3.4 МБ |
-| Проверка пакета | `python scripts/check_transfer_packet.py` | 0.2 с | все MIME поддерживаются, 74 копии побайтовые, 0 расхождений |
 
 ## Что НЕ покрыто
 

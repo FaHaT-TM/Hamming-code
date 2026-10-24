@@ -45,7 +45,3 @@ results/data/raw/
 *.log
 *.tmp
 ~$*
-docs/report/packet2_for_agent2.zip
-
-# пакет для Агента №2 — генерируемый артефакт
-docs/packet2_pkg/
