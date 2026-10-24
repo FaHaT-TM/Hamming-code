@@ -5,7 +5,7 @@
     Σ_z h_z = M,    Σ_z z·h_z = E,    M − h_0 = K,    Σ_z z²·h_z = sum_z2.
 
 Пишет results/data/histogram_checks.json и docs/report/HISTOGRAM_CHECKS.md.
-Запуск: python scripts/check_histograms.py
+Запуск: python scripts/check_histograms.py (только сохранённые CSV, без моделирования)
 """
 
 from __future__ import annotations
@@ -69,6 +69,7 @@ def main() -> None:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
     L = ["# ПРОВЕРКА ТОЖДЕСТВ ГИСТОГРАММ $Z_j$", "",
+         "**Назначение:** контроль внутренней согласованности сохранённых счётчиков.", "",
          "Сформировано `scripts/check_histograms.py` для всех строк сохранённых CSV.", "",
          "Проверяются тождества: $\\sum_z h_z = M$, $\\sum_z z\\,h_z = E$, "
          "$M - h_0 = K$, $\\sum_z z^2 h_z = \\sum Z_j^2$.", "",
