@@ -2,6 +2,9 @@
 
 **Файл:** `defense_presentation.pptx` (13 слайдов, 16:9).
 
+**Просмотр без PowerPoint:** `defense_presentation.pdf` — та же презентация в PDF;
+`preview_slide1.png` — изображение титульного слайда.
+
 **Структура:**
 
 1. Титульный слайд.
