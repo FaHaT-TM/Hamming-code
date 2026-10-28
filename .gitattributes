@@ -1,0 +1,25 @@
+# Переводы строк: в репозитории и при checkout — всегда LF.
+#
+# Зачем: писатели CSV в скриптах (csv.DictWriter с newline="") выдают CRLF —
+# это диалект csv по умолчанию. Файлы в репозитории лежат с LF, поэтому без
+# нормализации любая перегенерация выглядит как «изменён весь файл», хотя числа
+# в нём те же. С этими правилами git сам приводит переводы строк к LF, и
+# `git diff results/` после перегенерации остаётся пустым, если числа не менялись.
+* text=auto eol=lf
+
+# Явно текстовые файлы проекта
+*.py    text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+*.ipynb text eol=lf
+
+# Двоичные файлы — не нормализовать
+*.png  binary
+*.pdf  binary
+*.pptx binary
+*.npz  binary
+*.npy  binary
+*.pkl  binary
