@@ -9,7 +9,7 @@
   "n": 2,
   "text": "Notebook присутствует и исполняется без ошибок",
   "ok": true,
-  "detail": "`jupyter nbconvert --execute`: ошибок 0, 48 ячеек (22 исполняемых)"
+  "detail": "`jupyter nbconvert --execute`: ошибок 0, 51 ячеек (22 исполняемых)"
  },
  {
   "n": 3,
@@ -27,7 +27,7 @@
   "n": 5,
   "text": "Все тесты проходят",
   "ok": true,
-  "detail": "Ran 119 tests in 6.595s; OK"
+  "detail": "Ran 119 tests in 6.603s; OK"
  },
  {
   "n": 6,
