@@ -4,7 +4,7 @@
 
     Σ_z h_z = M,    Σ_z z·h_z = E,    M − h_0 = K,    Σ_z z²·h_z = sum_z2.
 
-Пишет results/data/histogram_checks.json и docs/report/HISTOGRAM_CHECKS.md.
+Пишет results/data/histogram_checks.json и документы/отчёты/Проверка_гистограмм.md.
 Запуск: python scripts/check_histograms.py (только сохранённые CSV, без моделирования)
 """
 
@@ -22,7 +22,7 @@ from src import metrics  # noqa: E402
 
 DATA = os.path.join(ROOT, "results", "data")
 JSON_OUT = os.path.join(DATA, "histogram_checks.json")
-MD_OUT = os.path.join(ROOT, "docs", "report", "HISTOGRAM_CHECKS.md")
+MD_OUT = os.path.join(ROOT, "документы", "отчёты", "Проверка_гистограмм.md")
 
 
 def check_file(path: str, dataset: str) -> list[dict]:

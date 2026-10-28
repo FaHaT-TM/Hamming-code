@@ -8,7 +8,7 @@
 Пишет:
     results/data/refinement_gains.csv
     results/data/refinement_cluster.csv
-    docs/report/REFINEMENT_RESULTS.md
+    документы/отчёты/Уточняющий_прогон.md
 """
 
 from __future__ import annotations
@@ -222,7 +222,7 @@ def main() -> None:
     w("- `results/data/refinement_gains.csv` — выигрыши и bootstrap-диагностика;")
     w("- `results/data/refinement_plan.json` — зафиксированный до запуска протокол.")
 
-    out = os.path.join(ROOT, "docs", "report", "REFINEMENT_RESULTS.md")
+    out = os.path.join(ROOT, "документы", "отчёты", "Уточняющий_прогон.md")
     with open(out, "w", encoding="utf-8") as f:
         f.write("\n".join(L) + "\n")
     print("записано:", out)
