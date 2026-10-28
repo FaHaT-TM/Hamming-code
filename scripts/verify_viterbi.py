@@ -9,7 +9,7 @@
 3. специально построенный пример равных метрик (tie-break) с явным разбором;
 4. проверку d_free на конечном диапазоне (вычислительное подтверждение, не доказательство).
 
-Пишет ``results/data/viterbi_verification.json`` и ``docs/report/VITERBI_VERIFICATION.md``.
+Пишет ``results/data/viterbi_verification.json`` и ``документы/отчёты/Проверка_декодера_Витерби.md``.
 Запуск: python scripts/verify_viterbi.py
 """
 
@@ -28,7 +28,7 @@ from src import convolutional as conv  # noqa: E402
 from src import viterbi  # noqa: E402
 
 JSON_OUT = os.path.join(ROOT, "results", "data", "viterbi_verification.json")
-MD_OUT = os.path.join(ROOT, "docs", "report", "VITERBI_VERIFICATION.md")
+MD_OUT = os.path.join(ROOT, "документы", "отчёты", "Проверка_декодера_Витерби.md")
 
 
 def brute_force(rx: np.ndarray, length: int):

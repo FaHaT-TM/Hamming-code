@@ -2,7 +2,7 @@
 
 Читает только сохранённые CSV и JSON и генерирует:
 
-    docs/report/RESULTS.md
+    документы/отчёты/Отчёт_по_результатам.md
     results/data/energy_gain.csv
     results/data/cluster_intervals.csv
 
@@ -28,7 +28,7 @@ from src import channel, convolutional as conv  # noqa: E402
 from src import hamming, metrics, plotting, simulation  # noqa: E402
 
 DATA = os.path.join(ROOT, "results", "data")
-OUT_MD = os.path.join(ROOT, "docs", "report", "RESULTS.md")
+OUT_MD = os.path.join(ROOT, "документы", "отчёты", "Отчёт_по_результатам.md")
 
 SCHEMES = ("uncoded", "hamming", "convolutional")
 NAMES = {
@@ -278,7 +278,7 @@ def main() -> None:
       "Значение $K$ сверено с сохранёнными данными: данные не менялись, "
       "общая $E$ и BER совпадают. "
       "Все четыре тождества гистограммы проверены для 81 строки всех трёх наборов, "
-      "расхождений нет (`docs/report/HISTOGRAM_CHECKS.md`).")
+      "расхождений нет (`документы/отчёты/Проверка_гистограмм.md`).")
     w("2. **Роль гистограммы.** Для кластерных SE достаточно "
       "$M$, $E$, $\\ell$, $\\sum Z_j^2$; гистограмма нужна только для "
       "непараметрического bootstrap.")
@@ -325,7 +325,7 @@ def main() -> None:
         tie = vit["tie_break_example"]
         w("### 2.2. Витерби: недостающие подтверждения (замечание §6)")
         w()
-        w("Источник: `docs/report/VITERBI_VERIFICATION.md`, "
+        w("Источник: `документы/отчёты/Проверка_декодера_Витерби.md`, "
           "`results/data/viterbi_verification.json` (вычислено `scripts/verify_viterbi.py`).")
         w()
         w("| L | случаев (полный перебор) | несовпадений **метрики** | единственный оптимум "
@@ -535,7 +535,7 @@ def main() -> None:
         w(f"Протокол зафиксирован до запуска (§4 спецификации): seed "
           f"**{plan_ref['seed']}**, объёмы зафиксированы до запуска, остановки по числу "
           f"ошибок нет; результаты **не объединяются** с прежними в основную оценку. "
-          f"Подробности — `docs/report/REFINEMENT_RESULTS.md`.")
+          f"Подробности — `документы/отчёты/Уточняющий_прогон.md`.")
         w()
         w("| Набор | Схема | $E_b/N_0$ без кода | $E_b/N_0$ кодированной | Выигрыш | "
           "bootstrap 95 % | невалидных реплик | смена пары точек |")
@@ -643,9 +643,9 @@ def main() -> None:
         size = os.path.getsize(path) if os.path.exists(path) else "—"
         w(f"- `results/data/{name}` ({size} байт)")
     w("- `results/figures/ber_comparison.png` / `.pdf`, `results/figures/ber_zoom.png` / `.pdf`")
-    w("- `docs/report/VITERBI_VERIFICATION.md`, `docs/report/REFINEMENT_RESULTS.md`,")
-    w("  `docs/report/HISTOGRAM_CHECKS.md`")
-    w("- `docs/report/RESULTS.md` — этот отчёт (генерируется из сохранённых CSV)")
+    w("- `документы/отчёты/Проверка_декодера_Витерби.md`, `документы/отчёты/Уточняющий_прогон.md`,")
+    w("  `документы/отчёты/Проверка_гистограмм.md`")
+    w("- `документы/отчёты/Отчёт_по_результатам.md` — этот отчёт (генерируется из сохранённых CSV)")
 
     # ---------- запись ----------
     os.makedirs(os.path.dirname(OUT_MD), exist_ok=True)
