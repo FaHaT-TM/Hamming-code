@@ -21,15 +21,33 @@ add(2, "Notebook присутствует и исполняется без ош�
     f"({sum(1 for c in _nb['cells'] if c['cell_type'] == 'code')} исполняемых)")
 # 3 импорты
 r=subprocess.run([sys.executable,"-c","import src, src.hamming, src.convolutional, src.viterbi, src.channel, src.simulation, src.metrics, src.plotting; print('ok')"],capture_output=True,text=True)
-add(3,"Импорты работают", r.returncode==0, r.stdout.strip() or r.stderr.strip()[:120])
+if r.returncode==0:
+    add(3,"Импорты работают", True, r.stdout.strip())
+else:
+    # показываем последнюю строку трейсбека (причину), а не его начало;
+    # самая частая причина — не установлены зависимости в текущем окружении
+    errlines=[l.strip() for l in r.stderr.splitlines() if l.strip()]
+    cause=errlines[-1] if errlines else "неизвестная ошибка импорта"
+    hint=" (активируйте venv и/или выполните: pip install -r requirements.txt)" \
+        if "ModuleNotFoundError" in r.stderr else ""
+    add(3,"Импорты работают", False, cause+hint)
 # 4 зависимости
 req=open("requirements.txt",encoding="utf-8").read()
 add(4,"Зависимости указаны (numpy, matplotlib, jupyter)", all(k in req for k in ("numpy","matplotlib","jupyter")),
     "requirements.txt; scipy не требуется")
 # 5 тесты
 r=subprocess.run([sys.executable,"-m","unittest","discover","-s","tests","-t","."],capture_output=True,text=True)
-tail=[l for l in r.stderr.splitlines() if l.startswith("Ran ") or l.strip()=="OK"]
-add(5,"Все тесты проходят", r.returncode==0, "; ".join(tail))
+tail=[l for l in r.stderr.splitlines()
+      if l.startswith("Ran ") or l.strip()=="OK" or l.startswith("FAILED")]
+detail="; ".join(tail)
+if r.returncode!=0:
+    errlines=[l.strip() for l in r.stderr.splitlines() if l.strip()]
+    cause=next((l for l in reversed(errlines) if "Error" in l), "")
+    hint=" (похоже, не установлены зависимости: активируйте venv и/или " \
+         "выполните pip install -r requirements.txt)" \
+        if "ModuleNotFoundError" in r.stderr else ""
+    detail=(detail+"; "+cause+hint).strip("; ")
+add(5,"Все тесты проходят", r.returncode==0, detail)
 # 6 seed
 add(6,"Seed зафиксирован", "seed: int = 20261024" in open("src/simulation.py",encoding="utf-8").read(),
     "Plan.seed = 20261024, потоки через SeedSequence")
